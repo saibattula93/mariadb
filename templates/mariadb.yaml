@@ -7,25 +7,20 @@ spec:
     name: mariadb-root
     key: password
     generate: true
-
   username: mariadb
   passwordSecretKeyRef:
     name: mariadb-password
     key: password
     generate: true
   database: mariadb
-
   port: 3306
-
   storage:
     size: 1Gi
-
   service:
     type: LoadBalancer
     metadata:
       annotations:
         metallb.universe.tf/loadBalancerIPs: 172.18.0.20
-
   myCnf: |
     [mariadb]
     bind-address=*
@@ -34,7 +29,6 @@ spec:
     innodb_autoinc_lock_mode=2
     innodb_buffer_pool_size=1024M
     max_allowed_packet=256M
-
   resources:
     requests:
       cpu: {{ .Values.requests.cpu }}
@@ -42,6 +36,5 @@ spec:
     limits:
       cpu: {{ .Values.requests.cpu }}
       memory: {{ .Values.limits.memory }}
-
   metrics:
-    enabled: true
+    enabled: false
