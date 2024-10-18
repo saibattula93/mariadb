@@ -17,10 +17,10 @@ spec:
       endpoint: minio.minio.svc.cluster.local:9000
       accessKeyIdSecretKeyRef:
         name: minio
-        key: access-key-id
+        key: mariadb-operator
       secretAccessKeySecretKeyRef:
         name: minio
-        key: secret-access-key
+        key: Minio11!
   args:
     - --single-transaction
     - --all-databases
