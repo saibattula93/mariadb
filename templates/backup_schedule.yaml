@@ -1,34 +1,34 @@
 apiVersion: k8s.mariadb.com/v1alpha1
 kind: Backup
 metadata:
-  name: backup-scheduled
+  name: backup
 spec:
   mariaDbRef:
     name: mariadb
-  schedule:
-    cron: "*/1 * * * *"
-    suspend: false
-  timeZone: "UTC"
-  maxRetention: 24h
-  compression: bzip2
+  inheritMetadata:
+    annotations:
+      database.myorg.io: mariadb
+  podMetadata:
+    labels:
+      sidecar.istio.io/inject: "false"
+  serviceAccountName: backup
   storage:
-    s3:
-      bucket: backups
-      endpoint: minio.minio.svc.cluster.local:9000
-      accessKeyIdSecretKeyRef:
-        name: minio
-        key: mariadb-operator
-      secretAccessKeySecretKeyRef:
-        name: minio
-        key: Minio11!
+    persistentVolumeClaim:
+      resources:
+        requests:
+          storage: 100Mi
+      accessModes:
+        - ReadWriteOnce
   args:
     - --single-transaction
     - --all-databases
-  logLevel: info
+    - --verbose
   resources:
     requests:
-      cpu: 100m
-      memory: 128Mi
+      cpu: {{ .Values.backup.resources.requests.cpu }}
+      memory: {{ .Values.backup.resources.requests.memory }}
     limits:
-      cpu: 300m
-      memory: 512Mi
+      cpu: {{ .Values.backup.resources.limits.cpu }}
+      memory: {{ .Values.backup.resources.limits.memory }}
+  affinity:
+    antiAffinityEnabled: true
