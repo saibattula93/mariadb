@@ -1,0 +1,21 @@
+apiVersion: v2
+appVersion: v0.0.29
+name: mariadb-instance
+version: 0.29.0
+type: application
+description: Chart for MariaDB Instance
+keywords:
+  - mariadb
+  - mysql
+  - database
+  - galera
+  - maxscale
+  - operator
+  - mariadb-operator
+kubeVersion: '>= 1.16.0-0'
+sources:
+  - https://github.com/mariadb-operator/mariadb-operator
+maintainers:
+- email: mariadb-operator@proton.me
+  name: mmontes11
+
