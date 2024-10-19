@@ -5,6 +5,12 @@ metadata:
 spec:
   mariaDbRef:
     name: mariadb
+  schedule:
+    cron: "{{ .Values.backup.schedule.cron }}"
+    suspend: {{ .Values.backup.schedule.suspend }}
+  timeZone: "{{ .Values.backup.timeZone }}"
+  maxRetention: {{ .Values.backup.maxRetention }}
+  compression: {{ .Values.backup.compression }}
   inheritMetadata:
     annotations:
       database.myorg.io: mariadb
