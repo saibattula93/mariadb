@@ -13,12 +13,18 @@ minioPlay:
   secretAccessKey: zuf+tfteSlswRu7BJ86wekitnifILbZam1KYY3TG
   sessionToken: token
 
+mariadb:
+  database: mariadb
+  storage:
+    size: 1Gi
 requests:
   cpu: 100m
   memory: 128Mi
 limits:
   cpu: 500m
   memory: 1Gi
+metrics:
+  enabled: true
 
 user:
   metadata:
