@@ -44,4 +44,4 @@ spec:
       memory: {{ .Values.limits.memory }}
 
   metrics:
-    enabled: true
+    enabled: {{ .Values.metrics.enabled }}
