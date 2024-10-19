@@ -13,12 +13,12 @@ spec:
     name: mariadb-password
     key: password
     generate: true
-  database: mariadb
+  database: {{ .Values.mariadb.database }}
 
   port: 3306
 
   storage:
-    size: 1Gi
+    size: {{ .Values.mariadb.storage.size }}
 
   service:
     type: LoadBalancer
