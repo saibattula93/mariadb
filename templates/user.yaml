@@ -1,7 +1,7 @@
 apiVersion: k8s.mariadb.com/v1alpha1
 kind: User
 metadata:
-  name: {{ .Values.user.metadata.name }}
+  name: user
 spec:
   # If you want the user to be created with a different name than the resource name
   # name: user-custom
@@ -13,4 +13,6 @@ spec:
   # This field is immutable and defaults to 10
   maxUserConnections: 20
   host: "%"
+  cleanupPolicy: Delete
+  requeueInterval: 30s
   retryInterval: 5s
