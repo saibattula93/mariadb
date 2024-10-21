@@ -1,7 +1,7 @@
 namespace: mariadb
 mariadb:
-  rootPassword: MariaDB11!
   password: MariaDB11!
+  rootPassword: MariaDB11!
 maxscale:
   password: MaxScale11!
 minio:
