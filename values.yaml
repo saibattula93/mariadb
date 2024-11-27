@@ -52,3 +52,6 @@ backup:
 
 restore:
   enabled: false
+
+sqljob3:
+  enabled: false
