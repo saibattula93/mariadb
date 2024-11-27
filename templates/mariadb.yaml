@@ -21,7 +21,7 @@ spec:
     size: {{ .Values.mariadb.storage.size }}
 
   service:
-    type: LoadBalancer
+    type: NodePort
     # metadata:
     #   annotations:
     #     metallb.universe.tf/loadBalancerIPs: 172.18.0.20
