@@ -35,6 +35,7 @@ database:
     name: database
 
 backup:
+  enabled: false
   schedule:
     cron: "* * * * *"  # Modify this for your schedule
     suspend: false       # Change to true if you want to suspend the job
