@@ -9,7 +9,7 @@ spec:
   mariaDbRef:
     name: mariadb
   schedule:
-    cron: "*/30 * * * *"
+    cron: "* * * * *"
     suspend: false
   username: user
   passwordSecretKeyRef:
