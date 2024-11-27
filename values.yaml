@@ -36,7 +36,7 @@ database:
 
 backup:
   schedule:
-    cron: "*/1 * * * *"  # Modify this for your schedule
+    cron: "* * * * *"  # Modify this for your schedule
     suspend: false       # Change to true if you want to suspend the job
   timeZone: "UTC"         # Change to "Asia/Kolkata" for IST
   maxRetention: 720h      # 30 days retention
