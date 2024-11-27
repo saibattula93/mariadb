@@ -49,3 +49,6 @@ backup:
     limits:
       cpu: 300m
       memory: 512Mi
+
+restore:
+  enabled: false
